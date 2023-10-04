@@ -224,7 +224,7 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
           () => isHourScrolling = false,
         ),
       ),
-      spacer(),
+      spacer(separator: true),
       SizedBox(
         width: _getItemWidth(),
         height: _getItemHeight() * 3,
@@ -279,10 +279,13 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
     );
   }
 
-  Widget spacer() {
+  Widget spacer({bool separator = false}) {
     return SizedBox(
       width: _getSpacing(),
       height: _getItemHeight() * 3,
+      child: separator
+          ? const Center(child: Text(' : ', style: TextStyle(fontSize: 16)))
+          : Container(),
     );
   }
 
@@ -358,7 +361,10 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
                 text,
                 style: selectedIndex == index
                     ? Theme.of(context).textTheme.headlineSmall
-                    : Theme.of(context).textTheme.bodyLarge,
+                    : Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(color: Colors.grey[600]),
               ),
             );
           },
@@ -422,7 +428,10 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
                 text,
                 style: currentSelectedAPIndex == index
                     ? Theme.of(context).textTheme.headlineSmall
-                    : Theme.of(context).textTheme.bodyLarge,
+                    : Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(color: Colors.grey[600]),
               ),
             );
           },

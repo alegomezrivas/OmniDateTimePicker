@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                     },
                   );
 
-                  print("dateTime: $dateTime");
+                  debugPrint("dateTime: $dateTime");
                 },
                 child: const Text("Show DateTime Picker"),
               ),
@@ -114,8 +114,8 @@ class MyApp extends StatelessWidget {
                     },
                   );
 
-                  print("Start dateTime: ${dateTimeList?[0]}");
-                  print("End dateTime: ${dateTimeList?[1]}");
+                  debugPrint("Start dateTime: ${dateTimeList?[0]}");
+                  debugPrint("End dateTime: ${dateTimeList?[1]}");
                 },
                 child: const Text("Show DateTime Range Picker"),
               ),
